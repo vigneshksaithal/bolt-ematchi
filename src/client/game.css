@@ -138,24 +138,6 @@ body {
   line-height: 1
 }
 
-/* Matched Emojis Display */
-.matched-emojis {
-  display: flex
-  gap: 15px
-  flex-wrap: wrap
-  justify-content: center
-  min-height: 60px
-  align-items: center
-}
-
-.matched-emoji {
-  font-size: 2rem
-  padding: 8px
-  background-color: #444
-  border-radius: 8px
-  border: 2px solid #666
-}
-
 /* Game Messages */
 .game-message {
   text-align: center

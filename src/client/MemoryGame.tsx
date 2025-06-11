@@ -173,12 +173,6 @@ export const MemoryGame: React.FC = () => {
           ))}
         </div>
         
-        <div className="matched-emojis">
-          {gameState.matchedPairs.map((emoji, index) => (
-            <span key={index} className="matched-emoji">{emoji}</span>
-          ))}
-        </div>
-        
         {gameState.gameStatus === 'won' && (
           <div className="game-message win">
             🎉 Congratulations! You won! 🎉

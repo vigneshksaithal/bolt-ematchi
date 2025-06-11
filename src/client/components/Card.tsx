@@ -9,7 +9,7 @@ interface CardProps {
 }
 
 export const Card: React.FC<CardProps> = ({ card, isFlipped, onClick, disabled }) => {
-  // Only show emoji when flipped AND not matched
+  // Only show emoji when flipped and not matched
   const showEmoji = isFlipped && card.state !== 'matched'
   
   return (
