@@ -1,7 +1,7 @@
 import React from 'react'
 
 interface TimerProps {
-  progress: number // 0 to 100
+  progress: number
   isPaused: boolean
 }
 

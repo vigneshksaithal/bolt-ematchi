@@ -3,12 +3,10 @@ import { Card } from './components/Card'
 import { Timer } from './components/Timer'
 import { CardData, GameState } from '../shared/types/game'
 
-// Global variable for card reveal duration (in milliseconds)
 const CARD_REVEAL_DURATION = 1500
-const GAME_DURATION = 120000 // 2 minutes in milliseconds
-const TIMER_INTERVAL = 100 // Update timer every 100ms
+const GAME_DURATION = 120000 // 2 minutes
+const TIMER_INTERVAL = 100
 
-// Emoji pairs for the game (8 unique pairs for 16 cards)
 const EMOJI_PAIRS = [
   '🐶', '🐱', '🐭', '🐹', 
   '🐰', '🦊', '🐻', '🐼'
@@ -18,9 +16,7 @@ const createGameBoard = (): CardData[] => {
   const cards: CardData[] = []
   let cardId = 0
   
-  // Create pairs of cards
   EMOJI_PAIRS.forEach((emoji, pairIndex) => {
-    // Add first card of the pair
     cards.push({
       id: cardId++,
       emoji,
@@ -28,7 +24,6 @@ const createGameBoard = (): CardData[] => {
       pairId: pairIndex
     })
     
-    // Add second card of the pair
     cards.push({
       id: cardId++,
       emoji,
@@ -37,12 +32,10 @@ const createGameBoard = (): CardData[] => {
     })
   })
   
-  // Shuffle the cards using Fisher-Yates algorithm
+  // Shuffle cards
   for (let i = cards.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1))
-    const temp = cards[i]
-    cards[i] = cards[j]
-    cards[j] = temp
+    ;[cards[i], cards[j]] = [cards[j], cards[i]]
   }
   
   return cards
@@ -121,7 +114,7 @@ export const MemoryGame: React.FC = () => {
         const secondCard = gameState.cards.find(c => c.id === secondCardId)
         
         if (firstCard && secondCard && firstCard.pairId === secondCard.pairId) {
-          // Match found - cards become disabled and emojis disappear
+          // Match found
           setGameState(prev => ({
             ...prev,
             cards: prev.cards.map(card => 
@@ -133,7 +126,7 @@ export const MemoryGame: React.FC = () => {
             matchedPairs: [...prev.matchedPairs, firstCard.emoji]
           }))
         } else {
-          // No match, flip cards back
+          // No match
           setGameState(prev => ({
             ...prev,
             flippedCards: []

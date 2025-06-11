@@ -1,6 +1,5 @@
 import { Devvit, Post } from '@devvit/public-api'
 
-// Side effect import to bundle the server. The /index is required for server splitting.
 import '../server/index'
 import { defineConfig } from '@devvit/server'
 
