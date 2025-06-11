@@ -121,7 +121,7 @@ export const MemoryGame: React.FC = () => {
         const secondCard = gameState.cards.find(c => c.id === secondCardId)
         
         if (firstCard && secondCard && firstCard.pairId === secondCard.pairId) {
-          // Match found
+          // Match found - cards become disabled and emojis disappear
           setGameState(prev => ({
             ...prev,
             cards: prev.cards.map(card => 
@@ -175,7 +175,7 @@ export const MemoryGame: React.FC = () => {
               card={card}
               isFlipped={gameState.flippedCards.includes(card.id)}
               onClick={() => handleCardClick(card.id)}
-              disabled={!canFlip || gameState.gameStatus !== 'playing'}
+              disabled={!canFlip || gameState.gameStatus !== 'playing' || card.state === 'matched'}
             />
           ))}
         </div>

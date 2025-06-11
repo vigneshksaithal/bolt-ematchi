@@ -9,12 +9,13 @@ interface CardProps {
 }
 
 export const Card: React.FC<CardProps> = ({ card, isFlipped, onClick, disabled }) => {
-  const showEmoji = isFlipped || card.state === 'matched'
+  // Show emoji only if card is flipped but NOT matched
+  const showEmoji = isFlipped && card.state !== 'matched'
   
   return (
     <div
-      className={`card ${showEmoji ? 'flipped' : ''} ${card.state === 'matched' ? 'matched' : ''} ${disabled ? 'disabled' : ''}`}
-      onClick={!disabled ? onClick : undefined}
+      className={`card ${isFlipped ? 'flipped' : ''} ${card.state === 'matched' ? 'matched' : ''} ${disabled ? 'disabled' : ''}`}
+      onClick={!disabled && card.state !== 'matched' ? onClick : undefined}
     >
       <div className="card-inner">
         <div className="card-front">

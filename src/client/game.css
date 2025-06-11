@@ -96,7 +96,7 @@ body {
   border: 3px solid transparent;
 }
 
-.card:hover:not(.disabled) {
+.card:hover:not(.disabled):not(.matched) {
   background-color: #777;
   transform: scale(1.05);
 }
@@ -107,9 +107,10 @@ body {
 }
 
 .card.matched {
-  background-color: #333;
-  border-color: #333;
+  background-color: #1a1a1a;
+  border-color: #1a1a1a;
   cursor: default;
+  opacity: 0.6;
 }
 
 .card.disabled {
