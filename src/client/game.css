@@ -73,7 +73,7 @@ body {
   gap: 30px
 }
 
-/* Game Board */
+/* Game Board - DEBUG STYLES ADDED */
 .game-board {
   display: grid
   grid-template-columns: repeat(4, 1fr)
@@ -82,9 +82,13 @@ body {
   max-width: 400px
   width: 100%
   aspect-ratio: 1
+  /* DEBUG STYLES */
+  background-color: blue !important
+  border: 2px solid red !important
+  min-height: 400px
 }
 
-/* Card Styles */
+/* Card Styles - DEBUG STYLES ADDED */
 .card {
   background-color: #666
   border-radius: 12px
@@ -94,6 +98,11 @@ body {
   overflow: hidden
   aspect-ratio: 1
   border: 3px solid transparent
+  /* DEBUG STYLES */
+  background-color: green !important
+  border: 1px solid yellow !important
+  min-height: 80px
+  min-width: 80px
 }
 
 .card:hover:not(.disabled):not(.matched) {
