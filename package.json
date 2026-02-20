@@ -24,7 +24,7 @@
     "@devvit/client": "^0.11.16",
     "@devvit/public-api": "^0.11.16",
     "@devvit/server": "^0.11.16",
-    "express": "^5.1.0",
+    "express": "^5.2.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
